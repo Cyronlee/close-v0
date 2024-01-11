@@ -164,7 +164,7 @@ function App() {
 				      <div className="sm:mx-4 w-full max-h-32 overflow-auto">
 								<input
 									className="w-full p-2 text-base md:text-xl bg-transparent outline-none border-none ring-none"
-									placeholder="describe component changes"
+									placeholder="有什么要改变的吗？"
 									value={userInputDescription}
 									onChange={(e) => setUserInputDescription(e.target.value)}
 								/>
@@ -212,7 +212,7 @@ function App() {
 
 						<div className="md:col-span-9 lg:col-span-10 mb-2 pb-2 sm:flex sm:items-center ">
 				      <h1 className="">
-				        <a href="/" className="opacity-50 hover:opacity-100 duration-200">← back</a>
+				        <a href="/" className="opacity-50 hover:opacity-100 duration-200">← 返回</a>
 				        <span className="sm:hidden"><br/></span>
 				        <span className="ml-4 font-bold text-lg">{name}</span>
 				      </h1>
@@ -227,10 +227,10 @@ function App() {
 				          <img className="opacity-50 hover:opacity-100 dark:invert w-6 h-6" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgMTAuOTM1djIuMTMxbC04IDMuOTQ3di0yLjIzbDUuNjQtMi43ODMtNS42NC0yLjc5di0yLjIyM2w4IDMuOTQ4em0tMTYgMy44NDhsLTUuNjQtMi43ODMgNS42NC0yLjc5di0yLjIyM2wtOCAzLjk0OHYyLjEzMWw4IDMuOTQ3di0yLjIzem03LjA0Ny0xMC43ODNoLTIuMDc4bC00LjAxMSAxNmgyLjA3M2w0LjAxNi0xNnoiLz48L3N2Zz4=" />
 				        </a>
 
-								<a onClick={() => {event.preventDefault() ; setMode('share')} }
-				          className="cursor-pointer p-1 px-2 ml-2 bg-[#ddd] dark:bg-[#222] rounded opacity-50 hover:opacity-100 duration-200">
-				          <img className="opacity-50 hover:opacity-100 dark:invert w-6 h-6 p-1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNSA3YzIuNzYxIDAgNSAyLjIzOSA1IDVzLTIuMjM5IDUtNSA1LTUtMi4yMzktNS01IDIuMjM5LTUgNS01em0xMS4xMjIgMTIuMDY1Yy0uMDczLjMwMS0uMTIyLjYxMS0uMTIyLjkzNSAwIDIuMjA5IDEuNzkxIDQgNCA0czQtMS43OTEgNC00LTEuNzkxLTQtNC00Yy0xLjE2NSAwLTIuMjA0LjUwNi0yLjkzNSAxLjMwMWwtNS40ODgtMi45MjdjLS4yMy42MzYtLjU0OSAxLjIyOS0uOTQzIDEuNzY0bDUuNDg4IDIuOTI3em03Ljg3OC0xNS4wNjVjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDRjMCAuMzI0LjA0OS42MzQuMTIyLjkzNWwtNS40ODggMi45MjdjLjM5NS41MzUuNzEzIDEuMTI3Ljk0MyAxLjc2NGw1LjQ4OC0yLjkyN2MuNzMxLjc5NSAxLjc3IDEuMzAxIDIuOTM1IDEuMzAxIDIuMjA5IDAgNC0xLjc5MSA0LTR6Ii8+PC9zdmc+" />
-				        </a>
+						{/*		<a onClick={() => {event.preventDefault() ; setMode('share')} }*/}
+				        {/*  className="cursor-pointer p-1 px-2 ml-2 bg-[#ddd] dark:bg-[#222] rounded opacity-50 hover:opacity-100 duration-200">*/}
+				        {/*  <img className="opacity-50 hover:opacity-100 dark:invert w-6 h-6 p-1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNSA3YzIuNzYxIDAgNSAyLjIzOSA1IDVzLTIuMjM5IDUtNSA1LTUtMi4yMzktNS01IDIuMjM5LTUgNS01em0xMS4xMjIgMTIuMDY1Yy0uMDczLjMwMS0uMTIyLjYxMS0uMTIyLjkzNSAwIDIuMjA5IDEuNzkxIDQgNCA0czQtMS43OTEgNC00LTEuNzkxLTQtNC00Yy0xLjE2NSAwLTIuMjA0LjUwNi0yLjkzNSAxLjMwMWwtNS40ODgtMi45MjdjLS4yMy42MzYtLjU0OSAxLjIyOS0uOTQzIDEuNzY0bDUuNDg4IDIuOTI3em03Ljg3OC0xNS4wNjVjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDRjMCAuMzI0LjA0OS42MzQuMTIyLjkzNWwtNS40ODggMi45MjdjLjM5NS41MzUuNzEzIDEuMTI3Ljk0MyAxLjc2NGw1LjQ4OC0yLjkyN2MuNzMxLjc5NSAxLjc3IDEuMzAxIDIuOTM1IDEuMzAxIDIuMjA5IDAgNC0xLjc5MSA0LTR6Ii8+PC9zdmc+" />*/}
+				        {/*</a>*/}
 
 				      </div>
 				    </div>

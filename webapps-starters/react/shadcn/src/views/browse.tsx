@@ -180,7 +180,7 @@ export default function Browse() {
 				        {generateMode === 'description' ? (
 				          <input
 				            className="w-full p-2 text-base md:text-xl bg-transparent outline-none border-none ring-none"
-				            placeholder="describe your component"
+				            placeholder="请描述你的需求"
 				            value={userInputDescription}
 				            onChange={(e) => setUserInputDescription(e.target.value)}
 				          />
