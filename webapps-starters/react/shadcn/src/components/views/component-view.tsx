@@ -39,7 +39,7 @@ export default function ComponentView() {
 
     try {
       // Make the API POST request with the user input
-      const response = await fetch('http://localhost:3000/component/iterate', {
+      const response = await fetch('https://api.ui.bacopilot.site/component/iterate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export default function ComponentView() {
           setSelectedComponentIndex( components.length-1 )
           console.log(selectedComponentIndex)
         }
-        fetch(`http://localhost:3000/component/ping/?from=View Component&component=${componentId}`);
+        fetch(`https://api.ui.bacopilot.site/component/ping/?from=View Component&component=${componentId}`);
       });
 
 

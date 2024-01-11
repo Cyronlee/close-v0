@@ -23,7 +23,7 @@
     processing = true
 
     const response = await fetch(
-      `http://localhost:3000/components/share` ,
+      `https://api.ui.bacopilot.site/components/share` ,
       {
         method: "POST",
         headers: {
@@ -60,7 +60,7 @@
 
     let received_stream = ''
     const response = await fetch(
-      `http://localhost:3000/components/iterate/description` ,
+      `https://api.ui.bacopilot.site/components/iterate/description` ,
       {
         method: "POST",
         headers: {
@@ -110,7 +110,7 @@
     currentComponentIndex = null
     LoadedComponents = false
     const response = await fetch(
-      `http://localhost:3000/components/get?framework=svelte&components=flowbite&icons=lucide&name=${name}`
+      `https://api.ui.bacopilot.site/components/get?framework=svelte&components=flowbite&icons=lucide&name=${name}`
     );
     const data = await response.json();
     component_versions = data.items

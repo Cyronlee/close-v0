@@ -19,7 +19,7 @@
 		openv0_components_list = [...[]]
     LoadedComponents = false
 		const response = await fetch(
-			`http://localhost:3000/components/list?framework=svelte&components=flowbite&icons=lucide`
+			`https://api.ui.bacopilot.site/components/list?framework=svelte&components=flowbite&icons=lucide`
 		);
 		const data = await response.json();
 		openv0_components_list = data.items
@@ -51,7 +51,7 @@
 			description: generate_mode === `description` ? userInput_description : userInput_json,
 		})
 		const response = await fetch(
-			`http://localhost:3000/components/new/${generate_mode}` ,
+			`https://api.ui.bacopilot.site/components/new/${generate_mode}` ,
 			{
 				method: "POST",
 				headers: {

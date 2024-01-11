@@ -26,7 +26,7 @@ function App() {
     setProcessing(true)
 
     const response = await fetch(
-      `http://localhost:3000/components/share` ,
+      `https://api.ui.bacopilot.site/components/share` ,
       {
         method: "POST",
         headers: {
@@ -59,7 +59,7 @@ function App() {
 		setComponentVersions([...[]])
 		setLoadedComponents([...[]])
 		const response = await fetch(
-			`http://localhost:3000/components/get?framework=react&components=shadcn&icons=lucide&name=${name}`
+			`https://api.ui.bacopilot.site/components/get?framework=react&components=shadcn&icons=lucide&name=${name}`
 		);
 		const data = await response.json();
 		console.log(data)
@@ -104,7 +104,7 @@ function App() {
 		setComponentStream('')
 		let received_stream = ''
 		const response = await fetch(
-      `http://localhost:3000/components/iterate/description` ,
+      `https://api.ui.bacopilot.site/components/iterate/description` ,
       {
         method: "POST",
         headers: {
