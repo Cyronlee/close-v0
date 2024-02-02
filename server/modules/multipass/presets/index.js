@@ -1,4 +1,12 @@
 module.exports = {
+  componentNew_image: {
+    description: `generate a new component from a image`,
+    passes: [
+      `img-mock-component`,
+      `store-component`,
+      `export-component`,
+    ],
+  },
   componentNew_description: {
     description: `generate a new component from a text description`,
     passes: [

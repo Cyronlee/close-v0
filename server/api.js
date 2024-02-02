@@ -3,12 +3,15 @@ const cors = require("cors");
 const axios = require(`axios`);
 const { PassThrough } = require("stream");
 const multipass = require(`./modules/multipass/index.js`);
+const bodyParser = require("body-parser");
+
 require("dotenv").config();
 
 const app = express();
 const port = 3000;
 
 app.use(cors());
+app.use(bodyParser.json({ limit: "10mb" }));
 app.use(express.json());
 
 const sqlite3 = require("sqlite3");
@@ -135,16 +138,31 @@ app.post("/components/new/description", async (req, res) => {
   res.setHeader("Content-Type", "text/plain");
   const duplexStream = new PassThrough();
   duplexStream.pipe(res);
-  const generated = await multipass.preset({
-    stream: duplexStream,
-    preset: `componentNew_description`,
-    query: {
-      description: req.body.description,
-      framework: req.body.framework,
-      components: req.body.components,
-      icons: req.body.icons,
-    },
-  });
+  if (req?.body?.image) {
+       await multipass.preset({
+          stream: duplexStream,
+          preset: `componentNew_image`,
+          query: {
+              description: req.body.description,
+              framework: req.body.framework,
+              components: req.body.components,
+              icons: req.body.icons,
+              image: req.body.image,
+          },
+      });
+  } else {
+      await multipass.preset({
+          stream: duplexStream,
+          preset: `componentNew_description`,
+          query: {
+              description: req.body.description,
+              framework: req.body.framework,
+              components: req.body.components,
+              icons: req.body.icons,
+          },
+      });
+  }
+
   duplexStream.end();
 });
 
