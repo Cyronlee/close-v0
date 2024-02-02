@@ -2,7 +2,7 @@ module.exports = {
   componentNew_image: {
     description: `generate a new component from a image`,
     passes: [
-      `img-mock-component`,
+      `image-clone-component`,
       `store-component`,
       `export-component`,
     ],

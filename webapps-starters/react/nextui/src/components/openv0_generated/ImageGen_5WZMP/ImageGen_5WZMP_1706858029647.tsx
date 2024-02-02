@@ -1,14 +1,8 @@
-const path = require(`path`);
 
-/*
-  extract code from ```html ```
+"use client";
 
-*/
-
-async function run(req) {
-    console.log("> init : " + __dirname.split(path.sep).slice(-2).join(`/`));
-
-    const htmlCode = `
+export default function Component() {
+  return (
 <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
   <img src="/img/beams.jpg" alt="" class="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
   <div class="absolute inset-0 bg-[url(/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
@@ -59,61 +53,5 @@ async function run(req) {
     </div>
   </div>
 </div>
-`
-
-    const componentCode = `
-"use client";
-
-export default function Component() {
-  return (${htmlCode});
+);
 };
-`
-
-    req.stream.write("mock data is done")
-
-    // mock params
-    // req.pipeline.stages[`component`] = {
-    //     success: true,
-    //     data: {
-    //         version: `${Date.now()}`,
-    //         code: htmlCode,
-    //     },
-    // }
-    req.pipeline.stages[`component-design-task`] = {
-        success: true,
-        data: {
-            name: `ImageGen_${_randomUid(5)}`,
-            description: {
-                user: req?.query?.description || "clone image",
-                llm: req?.body?.description || "clone image",
-            },
-            icons: false,
-            components: false
-        }
-    }
-
-    return {
-        type: `component`,
-        success: true,
-        data: {
-            version: `${Date.now()}`,
-            code: componentCode,
-        },
-    };
-}
-
-module.exports = {
-    run,
-};
-
-function _randomUid(length) {
-    let result = "";
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-    }
-    return result;
-}
